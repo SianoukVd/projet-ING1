@@ -207,7 +207,11 @@ if (name.isEmpty() || birthDate.isEmpty() || relation.isEmpty()) {
     JOptionPane.showMessageDialog(this, "Please fill in all required fields.");
     return;
 }
-
+if(birthDate.isBefore(currentUser.getBirthDate()){
+}else{
+    JOptionPane.showMessageDialog(this,"Error : A child cannot be older than their father.");
+    return;
+}
 
 int confirm = JOptionPane.showConfirmDialog(this,
         "Is this person a registered user?", "Link to user",
