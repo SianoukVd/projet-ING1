@@ -207,10 +207,15 @@ if (name.isEmpty() || birthDate.isEmpty() || relation.isEmpty()) {
     JOptionPane.showMessageDialog(this, "Please fill in all required fields.");
     return;
 }
-if(birthDate.isBefore(currentUser.getBirthDate()){
-}else{
-    JOptionPane.showMessageDialog(this,"Error : A child cannot be older than their father.");
-    return;
+
+LocalDate dateUser = LocalDate.parse(birthDate);
+LocalDate datePersonToAdd = LocalDate.parse(currentUser.getBirthDate());
+if(dateUser.isBefore(datePersonToAdd) && (relation.equals("Father")||relation.equals("Mother")||relation.equals("Grandfather")||relation.equals("Grandmother")) ) {
+}else if(dateUser.isAfter(datePersonToAdd) && (relation.equals("Son")||relation.equals("Daughter"))){
+}else if(relation.equals("Uncle")||relation.equals("Aunt")||relation.equals("Cousin")||relation.equals("Other")||relation.equals("Sister")||relation.equals("Brother")) {
+}else {
+	JOptionPane.showMessageDialog(this,"Error : A child cannot be older than their father or a son");
+	return;
 }
 
 int confirm = JOptionPane.showConfirmDialog(this,
