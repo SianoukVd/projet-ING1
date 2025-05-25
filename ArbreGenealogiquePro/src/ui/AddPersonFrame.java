@@ -10,7 +10,7 @@ import model.User;
 
 /**
  *
- * @author karimakl
+ * @author vincentdelb
  */
 public class AddPersonFrame extends javax.swing.JFrame {
 
